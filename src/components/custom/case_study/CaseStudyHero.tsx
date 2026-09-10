@@ -30,13 +30,16 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
         >
           <div className="flex items-center flex-wrap gap-x-2 gap-y-2">
             <p className="text-sm text-white/70">
-              {study.category} | {study.year} | Duration - {study.duration}
+              {study.category} | {study.year}
+              {study.duration && ` | Duration - ${study.duration}`}
             </p>
             <span className="text-xs font-medium rounded-full border border-white/40 px-3 py-1">{study.statusLabel}</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-bold">{study.name}</h1>
           <p className="text-base md:text-lg text-white/80 leading-7">{study.tagline}</p>
-          <p className="text-sm text-white/60">{study.company}</p>
+          <p className="text-sm text-white/60">
+            {study.company} &middot; Private client project, no public link available
+          </p>
 
           <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
             {study.tags.map((tag) => (

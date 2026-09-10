@@ -17,12 +17,14 @@ const itemVariants: Variants = {
 
 const statusStyles: Record<string, string> = {
   Live: "bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800",
+  Completed: "bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800",
   Archived: "bg-gray-100 dark:bg-zinc-800 text-gray-500 dark:text-zinc-400 border-gray-200 dark:border-zinc-700",
   "In Progress": "bg-yellow-50 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800",
 };
 
 const statusDot: Record<string, string> = {
   Live: "bg-green-500 animate-pulse",
+  Completed: "bg-blue-500",
   Archived: "bg-gray-400",
   "In Progress": "bg-yellow-500 animate-pulse",
 };

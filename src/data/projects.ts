@@ -3,7 +3,7 @@ export type Project = {
   description: string;
   period: string;
   type: "WEBSITE" | "APP" | "SAAS" | "OPEN SOURCE" | "BACKEND" | "API";
-  status: "Live" | "Archived" | "In Progress" | null;
+  status: "Live" | "Completed" | "Archived" | "In Progress" | null;
   image?: string;
   url?: string;
   /** Slug into src/data/caseStudies.ts — when set, the card links to an in-depth case study instead of an external url. */
@@ -17,7 +17,7 @@ export const projects: Project[] = [
     description: "Multi-business point of sale and operations platform — one core of sales, inventory, staff, and reporting that reconfigures itself for retail, restaurants, pharmacies, salons, and laundromats. Built at InnovaGHX. React 19, AdonisJS, PostgreSQL.",
     period: "2025",
     type: "SAAS",
-    status: "In Progress",
+    status: "Completed",
     image: "/images/portfolio/pos/pos-hero.svg",
     caseStudySlug: "pos",
   },
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description: "QR-first booking and management platform for student hostels — students request a bed themselves, staff approve from one queue, billing runs off the same record. Built at InnovaGHX. React 19, AdonisJS, PostgreSQL.",
     period: "2026",
     type: "SAAS",
-    status: "In Progress",
+    status: "Completed",
     image: "/images/portfolio/hostel/dashboard.webp",
     caseStudySlug: "hostel",
   },
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     description: "End-to-end healthcare delivery platform unifying intake, triage, pharmacy, lab, and billing into one role-based dashboard. Built at InnovaGHX. Vue JS, Laravel, AWS.",
     period: "2023",
     type: "APP",
-    status: "Live",
+    status: "Completed",
     image: "/images/portfolio/cure/cure-banner.svg",
     caseStudySlug: "cure",
   },

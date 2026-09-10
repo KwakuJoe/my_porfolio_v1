@@ -86,11 +86,17 @@ export default function MyProjects() {
                       )}
                     </div>
 
-                    {/* Live badge */}
+                    {/* Status badge */}
                     {project.status === "Live" && (
                       <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 text-xs font-semibold text-gray-800 dark:text-zinc-100 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                         Live
+                      </div>
+                    )}
+                    {project.status === "Completed" && (
+                      <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 text-xs font-semibold text-gray-800 dark:text-zinc-100 shadow-sm">
+                        <span className="w-2 h-2 rounded-full bg-blue-500" />
+                        Completed
                       </div>
                     )}
                   </div>

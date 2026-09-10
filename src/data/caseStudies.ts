@@ -55,8 +55,8 @@ export const caseStudies: CaseStudy[] = [
     company: "Built at InnovaGHX",
     category: "SaaS Platform",
     year: "2025",
-    duration: "Ongoing",
-    statusLabel: "In Development",
+    duration: "",
+    statusLabel: "Completed",
     banner: "/images/portfolio/pos/pos-hero.svg",
     cardDescription:
       "A single point-of-sale platform that reconfigures itself for retail, restaurants, pharmacies, salons, and laundromats — one core of sales, inventory, staff, and reporting, tailored per business type.",
@@ -157,8 +157,8 @@ export const caseStudies: CaseStudy[] = [
     company: "Built at InnovaGHX",
     category: "SaaS Platform",
     year: "2026",
-    duration: "Ongoing",
-    statusLabel: "In Development",
+    duration: "",
+    statusLabel: "Completed",
     banner: "/images/portfolio/hostel/dashboard.webp",
     cardDescription:
       "Students scan a QR code to request a bed themselves; staff approve from one queue. From there, occupancy, invoices, arrears, and semester billing all run off the same booking record.",
@@ -257,8 +257,8 @@ export const caseStudies: CaseStudy[] = [
     company: "Built at InnovaGHX",
     category: "Web Application",
     year: "2023",
-    duration: "Ongoing",
-    statusLabel: "Live",
+    duration: "",
+    statusLabel: "Completed",
     banner: "/images/portfolio/cure/cure-banner.svg",
     cardDescription:
       "A turnkey, end-to-end platform built to streamline every aspect of modern healthcare delivery. From patient intake and triage to pharmacy dispensing, lab diagnostics, and billing, Innova Cure brings all clinical and operational workflows under one intuitive, role-based dashboard.",
