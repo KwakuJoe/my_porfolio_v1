@@ -59,69 +59,86 @@ export default function MyProjects() {
 
           {/* Right col — grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 flex-1 gap-6">
-            {projects.slice(0, FEATURED_COUNT).map((project, index) => (
-              <motion.a
-                key={index}
-                variants={cardVariants}
-                href={project.url ?? "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                className="group flex flex-col gap-y-3 cursor-pointer"
-              >
-                {/* Screenshot card */}
-                <div className="relative w-full aspect-4/3 rounded-2xl bg-gray-100 dark:bg-zinc-800 p-2 flex flex-col">
-                  {/* Inset screenshot */}
-                  <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
-                    {/* Slim header */}
-                    <div className="flex items-center gap-1 px-2 py-1 bg-gray-200 dark:bg-zinc-700 border-b border-gray-300 dark:border-zinc-600">
-                      <span className="w-2 h-2 rounded-full bg-red-400" />
-                      <span className="w-2 h-2 rounded-full bg-yellow-400" />
-                      <span className="w-2 h-2 rounded-full bg-green-400" />
+            {projects.slice(0, FEATURED_COUNT).map((project, index) => {
+              const cardContent = (
+                <>
+                  {/* Screenshot card */}
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gray-100 dark:bg-zinc-800 p-2 flex flex-col">
+                    {/* Inset screenshot */}
+                    <div className="relative flex-1 rounded-xl overflow-hidden shadow-sm">
+                      {/* Slim header */}
+                      <div className="flex items-center gap-1 px-2 py-1 bg-gray-200 dark:bg-zinc-700 border-b border-gray-300 dark:border-zinc-600">
+                        <span className="w-2 h-2 rounded-full bg-red-400" />
+                        <span className="w-2 h-2 rounded-full bg-yellow-400" />
+                        <span className="w-2 h-2 rounded-full bg-green-400" />
+                      </div>
+
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="object-cover object-top w-full h-[calc(100%-1.25rem)] transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-[calc(100%-1.25rem)] flex items-center justify-center bg-gray-50 dark:bg-zinc-800">
+                          <Icon icon={typeIconMap[project.type] ?? "mdi:monitor"} className="text-4xl text-gray-300 dark:text-zinc-600" />
+                        </div>
+                      )}
                     </div>
 
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="object-cover object-top w-full h-[calc(100%-1.25rem)] transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="w-full h-[calc(100%-1.25rem)] flex items-center justify-center bg-gray-50 dark:bg-zinc-800">
-                        <Icon icon={typeIconMap[project.type] ?? "mdi:monitor"} className="text-4xl text-gray-300 dark:text-zinc-600" />
+                    {/* Live badge */}
+                    {project.status === "Live" && (
+                      <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 text-xs font-semibold text-gray-800 dark:text-zinc-100 shadow-sm">
+                        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        Live
                       </div>
                     )}
                   </div>
 
-                  {/* Live badge */}
-                  {project.status === "Live" && (
-                    <div className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700 text-xs font-semibold text-gray-800 dark:text-zinc-100 shadow-sm">
-                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      Live
-                    </div>
+                  {/* Meta row */}
+                  <div className="flex items-center justify-between text-xs text-gray-400 dark:text-zinc-500 font-medium tracking-wide uppercase">
+                    <span>{project.period}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <Icon icon={typeIconMap[project.type] ?? "mdi:monitor"} className="text-sm" />
+                      {project.type}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h2 className="text-base font-bold text-gray-900 dark:text-zinc-100 leading-snug group-hover:underline underline-offset-2 transition-all">
+                    {project.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
+                    {project.description}
+                  </p>
+                </>
+              );
+
+              return (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+                >
+                  {project.caseStudySlug ? (
+                    <Link to={`/projects/${project.caseStudySlug}`} className="group flex flex-col gap-y-3 cursor-pointer">
+                      {cardContent}
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.url ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col gap-y-3 cursor-pointer"
+                    >
+                      {cardContent}
+                    </a>
                   )}
-                </div>
-
-                {/* Meta row */}
-                <div className="flex items-center justify-between text-xs text-gray-400 dark:text-zinc-500 font-medium tracking-wide uppercase">
-                  <span>{project.period}</span>
-                  <span className="inline-flex items-center gap-1">
-                    <Icon icon={typeIconMap[project.type] ?? "mdi:monitor"} className="text-sm" />
-                    {project.type}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h2 className="text-base font-bold text-gray-900 dark:text-zinc-100 leading-snug group-hover:underline underline-offset-2 transition-all">
-                  {project.title}
-                </h2>
-
-                {/* Description */}
-                <p className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
-              </motion.a>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.div>

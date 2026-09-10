@@ -4,6 +4,7 @@ import NotFound from "@/pages/not_found";
 import Home from "@/pages/home";
 import Contact from "@/pages/contact";
 import Projects from "@/pages/projects";
+import CaseStudy from "@/pages/case_study";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: "projects", element: <Projects /> },
+            { path: "projects/:slug", element: <CaseStudy /> },
             { path: "contact", element: <Contact /> },
         ]
     }

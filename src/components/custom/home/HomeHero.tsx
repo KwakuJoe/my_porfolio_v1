@@ -76,4 +76,6 @@ export default function HomeHero() {
       </motion.div>
     </div>
   );
+
+  
 }
