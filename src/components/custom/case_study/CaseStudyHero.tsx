@@ -37,9 +37,24 @@ export default function CaseStudyHero({ study }: { study: CaseStudy }) {
           </div>
           <h1 className="text-3xl md:text-5xl font-bold">{study.name}</h1>
           <p className="text-base md:text-lg text-white/80 leading-7">{study.tagline}</p>
-          <p className="text-sm text-white/60">
-            {study.company} &middot; Private client project, no public link available
-          </p>
+          {study.liveUrl ? (
+            <p className="text-sm text-white/60 flex flex-wrap items-center gap-x-2">
+              <span>{study.company} &middot;</span>
+              <a
+                href={study.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-x-1 text-white hover:underline underline-offset-4"
+              >
+                Visit live site
+                <Icon icon="mdi:arrow-top-right" className="w-4 h-4" />
+              </a>
+            </p>
+          ) : (
+            <p className="text-sm text-white/60">
+              {study.company} &middot; Private client project, no public link available
+            </p>
+          )}
 
           <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mt-2">
             {study.tags.map((tag) => (

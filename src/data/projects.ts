@@ -13,6 +13,16 @@ export type Project = {
 export const projects: Project[] = [
   // — Flagship case studies —
   {
+    title: "Wynk Car Rentals",
+    description: "Car rental platform for a business in Accra: a public website where customers get an exact quote and book online, plus a staff dashboard for the calendar, handovers, payments, invoices, and reports. Next.js 16, AdonisJS, PostgreSQL.",
+    period: "2026",
+    type: "APP",
+    status: "Live",
+    image: "/images/portfolio/wynk/website-home.webp",
+    url: "https://www.wynkcarrentals.com/",
+    caseStudySlug: "wynk",
+  },
+  {
     title: "InnovaGHX POS",
     description: "Multi-business point of sale and operations platform — one core of sales, inventory, staff, and reporting that reconfigures itself for retail, restaurants, pharmacies, salons, and laundromats. Built at InnovaGHX. React 19, AdonisJS, PostgreSQL.",
     period: "2025",
