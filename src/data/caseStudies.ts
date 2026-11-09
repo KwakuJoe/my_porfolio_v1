@@ -35,6 +35,8 @@ export interface CaseStudy {
   duration: string;
   statusLabel: string;
   banner: string;
+  /** Public URL of the live product. When unset, the hero says it's a private client project. */
+  liveUrl?: string;
   cardDescription: string;
   tags: CaseStudyTechItem[];
   overview: {
@@ -48,6 +50,114 @@ export interface CaseStudy {
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "wynk",
+    name: "Wynk Car Rentals",
+    tagline: "An online booking website and full operations dashboard for a car rental business in Accra",
+    company: "Built for Wynk Car Rentals",
+    category: "Web Platform",
+    year: "2026",
+    duration: "",
+    statusLabel: "Live",
+    banner: "/images/portfolio/wynk/wynk-hero.webp",
+    liveUrl: "https://www.wynkcarrentals.com/",
+    cardDescription:
+      "A public website where customers pick a car, see the exact price for their dates, and book self-drive or with a driver, plus a staff dashboard that runs the whole rental from booking to handover, payments, invoices, and reports.",
+    tags: [
+      { icon: "akar-icons:nextjs-fill", label: "Next.js 16" },
+      { icon: "simple-icons:adonisjs", label: "AdonisJS" },
+      { icon: "simple-icons:postgresql", label: "PostgreSQL" },
+      { icon: "ri:tailwind-css-fill", label: "Tailwind CSS" },
+    ],
+    overview: {
+      problem:
+        "Car rental businesses in Ghana mostly take bookings over WhatsApp and phone calls, then track them in notebooks and spreadsheets. Customers can't see which cars are free or what a trip will really cost, double-bookings slip through, and nobody has a clear view of who has paid, which deposits are held, or which car documents are about to expire.",
+      solution:
+        "Wynk is one Next.js app with two sides. The public website lets customers browse the fleet, get an exact quote for their dates with delivery and extras included, and book online. A one-hour hold keeps the car until they pay by Mobile Money. Behind it, the staff dashboard runs every rental on a live availability calendar, from the customer's ID check and the handover inspection to payments, invoices, fleet maintenance, and reporting.",
+    },
+    highlights: [
+      { icon: "mdi:web", title: "Online Booking", description: "Customers book self-drive or with a driver and see the exact total upfront." },
+      { icon: "mdi:calendar-month-outline", title: "Live Calendar", description: "Every car's bookings, holds, and blocks on one timeline, with no double-booking." },
+      { icon: "mdi:car-key", title: "Handover & Returns", description: "Checklists, photo inspections, and signed agreements at pickup and return." },
+      { icon: "mdi:cash-multiple", title: "Payments & Invoices", description: "MoMo, cash, and bank payments, deposits, refunds, and PDF invoices." },
+      { icon: "mdi:car-wrench", title: "Fleet Care", description: "Odometer, maintenance, incidents, fines, and document expiry alerts." },
+    ],
+    features: [
+      {
+        icon: "mdi:tag-text-outline",
+        title: "Dynamic Pricing Engine",
+        description: "Daily, weekly, and monthly rates per category or car, with seasonal, holiday, and weekend rules, extras, protection plans, delivery zones, and taxes all worked into one quote.",
+      },
+      {
+        icon: "mdi:calendar-check-outline",
+        title: "Conflict-Free Availability",
+        description: "Bookings, holds, and maintenance blocks share one allocation table guarded by a Postgres exclusion constraint, so a car can never be booked twice for the same time.",
+      },
+      {
+        icon: "mdi:card-account-details-outline",
+        title: "Customer Verification",
+        description: "Customer ID and licence checks, a blacklist, and masked ID numbers with audited access to document images, in line with Ghana's Data Protection Act.",
+      },
+      {
+        icon: "mdi:clipboard-check-outline",
+        title: "Handover Workflow",
+        description: "Pickup and return inspections with checklists, damage photos, fuel and mileage readings, and a signed rental agreement, all on a tablet-friendly screen.",
+      },
+      {
+        icon: "mdi:chart-box-outline",
+        title: "Reports & Dashboard",
+        description: "Today's pickups and returns, fleet use, money collected, balances owed, and deposits held, filterable by period and exportable.",
+      },
+      {
+        icon: "mdi:message-text-outline",
+        title: "Automated Messaging",
+        description: "Booking confirmations and pickup and return reminders by SMS and email, with a message log that records the outcome of every send.",
+      },
+    ],
+    techStack: [
+      {
+        group: "Frontend",
+        items: [
+          { icon: "akar-icons:nextjs-fill", label: "Next.js 16" },
+          { icon: "mdi:react", label: "React 19" },
+          { icon: "mdi:language-typescript", label: "TypeScript" },
+          { icon: "ri:tailwind-css-fill", label: "Tailwind CSS v4" },
+          { icon: "simple-icons:reactquery", label: "TanStack Query" },
+          { icon: "simple-icons:playwright", label: "Playwright" },
+        ],
+      },
+      {
+        group: "Backend",
+        items: [
+          { icon: "simple-icons:adonisjs", label: "AdonisJS 7" },
+          { icon: "mdi:nodejs", label: "Node.js" },
+          { icon: "simple-icons:postgresql", label: "PostgreSQL" },
+          { icon: "mdi:api", label: "REST API" },
+          { icon: "mdi:tray-full", label: "Background Job Queue" },
+          { icon: "mdi:file-pdf-box", label: "PDF Generation" },
+        ],
+      },
+      {
+        group: "Infrastructure",
+        items: [
+          { icon: "mdi:cloud-upload-outline", label: "Cloudinary" },
+          { icon: "mdi:message-text-outline", label: "mNotify SMS" },
+          { icon: "simple-icons:railway", label: "Railway" },
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/images/portfolio/wynk/website-home.webp", label: "Booking Website" },
+      { src: "/images/portfolio/wynk/website-fleet.webp", label: "Fleet & Search" },
+      { src: "/images/portfolio/wynk/website-car-detail.webp", label: "Car Page & Instant Quote" },
+      { src: "/images/portfolio/wynk/dashboard.webp", label: "Staff Dashboard" },
+      { src: "/images/portfolio/wynk/calendar.webp", label: "Availability Calendar" },
+      { src: "/images/portfolio/wynk/bookings.webp", label: "Bookings" },
+      { src: "/images/portfolio/wynk/booking-detail.webp", label: "Booking Record" },
+      { src: "/images/portfolio/wynk/fleet.webp", label: "Fleet Management" },
+      { src: "/images/portfolio/wynk/reports.webp", label: "Reports" },
+    ],
+  },
   {
     slug: "pos",
     name: "InnovaGHX POS",
